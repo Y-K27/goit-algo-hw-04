@@ -8,8 +8,11 @@ def parse_input(user_input):
 def add_contact(args, contacts):
     try:
         name, phone = args
-        contacts[name] = phone
-        return "Contact added."
+        if name not in contacts.keys():
+            contacts[name] = phone
+            return "Contact added."
+        else:
+            return "The contact is exist"        
     except:
         return "Wrong contact."
 
